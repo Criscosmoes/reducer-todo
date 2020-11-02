@@ -22,3 +22,11 @@ export const changeCompleted = obj => {
         payload: obj, 
     })
 }
+
+
+export const clearForm = () => {
+
+    return({
+        type: "CLEAR_FORM", 
+    })
+}

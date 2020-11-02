@@ -23,6 +23,8 @@ export const reducer = (state, action) => {
             })
 
             return({...state, todos:[...newList]})
+        case("CLEAR_FORM"): 
+            return({...state, todos: []})
         default: 
             return(state); 
     }
