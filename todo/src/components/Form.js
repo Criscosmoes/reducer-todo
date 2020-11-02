@@ -1,17 +1,18 @@
 import React from 'react'; 
 
+const Form = ({handleChanges, onFormSubmit, state}) => {
 
-const Form = ({onFormSubmit, handleChanges, text}) => {
+    console.log(state); 
 
 
-
-    return (
+    return(
         <form onSubmit={onFormSubmit}>
-             <input value={text} onChange={handleChanges} type="text" /> 
-            <button type="submit">Submit!</button> 
-            <button type="submit">Clear Completed!</button>
+            <input value={state.text} onChange={handleChanges} type="text" /> 
+            <button type="submit">ADD TODO</button>
+            <button>CLEAR FORM</button>
         </form>
     )
 }
+
 
 export default Form; 

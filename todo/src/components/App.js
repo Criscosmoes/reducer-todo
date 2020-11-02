@@ -1,42 +1,39 @@
 import React, { useReducer } from 'react'; 
-import reducer from './../reducers'; 
-import { setNewText, addTodo, clearForm } from './../actions'; 
-import Form from './Form'; 
+import nextId from 'react-id-generator'; 
+import { initialState, reducer } from './../reducers';
+import { addTodo, setNewText } from './../actions/index';
+
+import Form from './Form';
 import TodoList from './TodoList';
+
+
 
 const App = () => {
 
-
-    const initialState = {
-        text: '', 
-        todos: [], 
-    }
-    
     const [state, dispatch] = useReducer(reducer, initialState); 
 
-    const handleChanges = e => {
 
-        dispatch(setNewText(e.target.value)); 
+    const handleChanges = e => {
+       dispatch(setNewText(e.target.value)); 
+
+        
     }
 
     const onFormSubmit = e => {
         e.preventDefault(); 
 
-        dispatch(addTodo(state.text))
-        console.log(state); 
 
-        dispatch(clearForm('')); 
+        dispatch(addTodo(state.text))
     }
-    
+
+
 
     return (
         <div>
-        
-            <Form onFormSubmit={onFormSubmit} text={state.text} handleChanges={handleChanges}/> 
-            <TodoList todos={state.todos} /> 
+            <Form onFormSubmit={onFormSubmit} handleChanges={handleChanges} state={state} /> 
+            <TodoList todos={state.todos}/> 
         </div>
     )
 }
-
 
 export default App; 

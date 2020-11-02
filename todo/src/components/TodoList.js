@@ -1,18 +1,24 @@
 import React from 'react'; 
 
 
-
 const TodoList = ({todos}) => {
 
-    const list = todos.map((cur, index) => {
+    const renderedList = todos.map(cur => {
         return (
-            <div key={index}>{cur}</div>
+            <div key={cur.id}>{cur.task}</div>
         )
     })
 
+
+
+
+
+
+
+
     return (
         <div>
-            {list}
+            {renderedList}
         </div>
     )
 }
