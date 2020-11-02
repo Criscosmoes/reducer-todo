@@ -24,7 +24,7 @@ export const changeCompleted = obj => {
 }
 
 
-export const clearForm = () => {
+export const clearForm = (arr) => {
 
     return({
         type: "CLEAR_FORM", 

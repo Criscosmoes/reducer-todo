@@ -20,22 +20,31 @@ const App = () => {
   const onFormSubmit = (e) => {
     e.preventDefault();
 
+
+    if(state.text.length === 0){
+        return; 
+    }
+
+
+
     dispatch(addTodo(state.text));
+    dispatch(setNewText(''))
   };
 
   const onTodoClick = (obj) => {
     dispatch(changeCompleted(obj));
-
-    console.log(state);
   };
 
+  const onClearForm = () => {
+    dispatch(clearForm(state.todos))
+  }
   return (
     <div>
       <Form
         onFormSubmit={onFormSubmit}
         handleChanges={handleChanges}
         state={state}
-        clearForm={clearForm}
+        onClearForm={onClearForm}
       />
       <TodoList todos={state.todos} onTodoClick={onTodoClick} />
     </div>

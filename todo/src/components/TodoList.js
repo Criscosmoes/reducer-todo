@@ -16,6 +16,8 @@ const StyledTodoList = styled.div`
 const TodoList = ({todos, onTodoClick}) => {
 
 
+
+
   
 
     const renderedList = todos.map(cur => {

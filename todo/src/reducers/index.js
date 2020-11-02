@@ -14,17 +14,25 @@ export const reducer = (state, action) => {
         case("CHANGE_COMPLETED"): 
 
             const newList = state.todos.map(cur => {
-                if(cur === action.payload){
+                if(cur.id === action.payload.id){
                     return({
                         ...action.payload, 
                         completed: !action.payload.completed, 
                     })
                 }
+                else {
+                    return cur; 
+                }
             })
+
+            console.log(newList); 
 
             return({...state, todos:[...newList]})
         case("CLEAR_FORM"): 
-            return({...state, todos: []})
+
+            const filteredList = state.todos.filter(cur => cur.completed === false); 
+
+            return({...state, todos: [...filteredList]})
         default: 
             return(state); 
     }

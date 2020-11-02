@@ -1,12 +1,14 @@
 import React from "react";
 
-const Form = ({ handleChanges, onFormSubmit, state, clearForm }) => {
+const Form = ({ handleChanges, onFormSubmit, state, onClearForm }) => {
   return (
-    <form onSubmit={onFormSubmit}>
-      <input value={state.text} onChange={handleChanges} type="text" />
-      <button type="submit">ADD TODO</button>
-      <button onClick={clearForm}>CLEAR FORM</button>
-    </form>
+    <div>
+      <form onSubmit={onFormSubmit}>
+        <input value={state.text} onChange={handleChanges} type="text" />
+        <button type="submit">ADD TODO</button>
+      </form>
+      <button onClick={onClearForm}>CLEAR COMPLETED!</button>
+    </div>
   );
 };
 
