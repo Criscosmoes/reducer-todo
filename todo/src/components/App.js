@@ -1,7 +1,6 @@
-import React, { useReducer } from 'react'; 
-import nextId from 'react-id-generator'; 
+import React, { useReducer } from 'react';  
 import { initialState, reducer } from './../reducers';
-import { addTodo, setNewText } from './../actions/index';
+import { addTodo, setNewText, changeCompleted } from './../actions/index';
 
 import Form from './Form';
 import TodoList from './TodoList';
@@ -27,11 +26,18 @@ const App = () => {
     }
 
 
+    const onTodoClick = obj => {
+
+        dispatch(changeCompleted(obj)); 
+
+        console.log(state); 
+    }
+
 
     return (
         <div>
             <Form onFormSubmit={onFormSubmit} handleChanges={handleChanges} state={state} /> 
-            <TodoList todos={state.todos}/> 
+            <TodoList todos={state.todos} onTodoClick={onTodoClick}/> 
         </div>
     )
 }

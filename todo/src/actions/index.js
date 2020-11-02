@@ -14,3 +14,11 @@ export const setNewText = text => {
         payload: text, 
     })
 }
+
+export const changeCompleted = obj => {
+
+    return({
+        type: "CHANGE_COMPLETED", 
+        payload: obj, 
+    })
+}

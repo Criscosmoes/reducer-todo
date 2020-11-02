@@ -1,11 +1,13 @@
 import React from 'react'; 
 
+const TodoList = ({todos, onTodoClick}) => {
 
-const TodoList = ({todos}) => {
+
+  
 
     const renderedList = todos.map(cur => {
         return (
-            <div key={cur.id}>{cur.task}</div>
+            <div onClick={() => onTodoClick(cur)}  key={cur.id}>{cur.task}</div>
         )
     })
 

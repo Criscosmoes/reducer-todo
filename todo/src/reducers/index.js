@@ -11,6 +11,18 @@ export const reducer = (state, action) => {
             }]})
         case("SET_NEW_TEXT"): 
             return({...state, text: action.payload})
+        case("CHANGE_COMPLETED"): 
+
+            const newList = state.todos.map(cur => {
+                if(cur === action.payload){
+                    return({
+                        ...action.payload, 
+                        completed: !action.payload.completed, 
+                    })
+                }
+            })
+
+            return({...state, todos:[...newList]})
         default: 
             return(state); 
     }

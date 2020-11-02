@@ -2,7 +2,6 @@ import React from 'react';
 
 const Form = ({handleChanges, onFormSubmit, state}) => {
 
-    console.log(state); 
 
 
     return(
